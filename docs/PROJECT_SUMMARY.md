@@ -1,8 +1,8 @@
-# SelfStudy 项目总结
+# 意念科技项目总结
 
 ## 项目概述
 
-已成功创建一个类似51zxw.net的在线学习平台,集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
+已成功创建一个类似51zxw.net的在线学习平台(意念科技),集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
 
 ## 完成的功能模块
 
@@ -135,7 +135,7 @@
 ## 项目目录结构
 
 ```
-selfstudy-platform/
+yinian-tech/
 ├── server/                      # 后端代码
 │   ├── config/                 # 配置文件
 │   │   └── database.js        # 数据库配置
@@ -371,7 +371,7 @@ git push -u origin main
 ## 联系方式
 
 - GitHub: https://github.com/13888285815/SelfStudy
-- Email: support@selfstudy.com
+- Email: zzx@yndxw.com
 
 ## 许可证
 

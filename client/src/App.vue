@@ -4,7 +4,7 @@
       <el-header>
         <div class="header-content">
           <div class="logo" @click="$router.push('/')">
-            <h2>SelfStudy</h2>
+            <h2>意念科技</h2>
           </div>
           <el-menu
             :default-active="activeMenu"

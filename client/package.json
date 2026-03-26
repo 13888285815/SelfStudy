@@ -1,7 +1,7 @@
 {
-  "name": "selfstudy-client",
+  "name": "yinian-tech-client",
   "version": "1.0.0",
-  "description": "SelfStudy学习平台前端",
+  "description": "意念科技在线学习平台前端",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

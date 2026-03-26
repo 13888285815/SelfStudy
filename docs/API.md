@@ -1,4 +1,4 @@
-# SelfStudy API 文档
+# 意念科技 API 文档
 
 ## 基础信息
 

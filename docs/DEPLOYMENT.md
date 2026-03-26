@@ -45,7 +45,7 @@ AI_API_ENDPOINT=https://api.openai.com/v1
 OPENAI_API_KEY=sk-your-openai-api-key
 
 # 管理员账户
-ADMIN_EMAIL=admin@selfstudy.com
+ADMIN_EMAIL=admin@yndxw.com
 ADMIN_PASSWORD=admin123
 ```
 

@@ -1,4 +1,4 @@
-# SelfStudy 在线学习平台
+# 意念科技在线学习平台
 
 一个类似51zxw.net的专业在线学习平台，集成Crunchbase式的订阅机制和AI API Tokens计费模式。
 

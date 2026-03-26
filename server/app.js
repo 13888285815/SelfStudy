@@ -49,9 +49,9 @@ app.use('/api', apiRoutes);
 // API文档
 app.get('/api', (req, res) => {
   res.json({
-    name: 'SelfStudy API',
+    name: '意念科技 API',
     version: '1.0.0',
-    description: '类似51zxw.net的学习平台API',
+    description: '意念科技在线学习平台API',
     endpoints: {
       auth: '/api/auth',
       subscription: '/api/subscription',

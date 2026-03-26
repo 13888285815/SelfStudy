@@ -1,8 +1,8 @@
-# 🚀 SelfStudy 快速开始指南
+# 🚀 意念科技快速开始指南
 
 ## 📋 项目概述
 
-SelfStudy是一个类似51zxw.net的在线学习平台,集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
+意念科技是一个类似51zxw.net的在线学习平台,集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
 
 ### 核心功能
 ✅ 用户认证系统 (JWT + API Key)
@@ -209,7 +209,7 @@ git push -u origin main
 ```
 e375f8b docs: add comprehensive project summary
 dc13555 docs: add GitHub setup and deployment guides
-a7396d9 Initial commit: SelfStudy online learning platform
+a7396d9 Initial commit: 意念科技在线学习平台
 ```
 
 ---
@@ -269,7 +269,7 @@ brew services stop redis               # 停止
 ## 📞 支持
 
 - GitHub: https://github.com/13888285815/SelfStudy
-- Email: support@selfstudy.com
+- Email: zzx@yndxw.com
 
 ---
 
