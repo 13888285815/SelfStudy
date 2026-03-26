@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意念科技 - 智能在线学习平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #667eea;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .courses-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .course-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-thumbnail::after {
+            content: '▶';
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.8;
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover .course-thumbnail::after {
+            transform: scale(1.2);
+        }
+
+        .course-info {
+            padding: 20px;
+        }
+
+        .course-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .course-instructor {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .course-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .star-rating {
+            color: #f7ba2a;
+            font-size: 16px;
+        }
+
+        .subscription-section {
+            background: #fff;
+            padding: 80px 40px;
+            margin-bottom: 80px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .subscription-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .subscription-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 50px 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .subscription-card:hover {
+            border-color: #667eea;
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .subscription-card.popular {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8ecff 100%);
+            position: relative;
+        }
+
+        .subscription-card.popular::before {
+            content: '🔥 超值推荐';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .plan-name {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .plan-price {
+            font-size: 42px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 25px;
+        }
+
+        .plan-price span {
+            font-size: 18px;
+            color: #999;
+            font-weight: normal;
+        }
+
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: #67c23a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .plan-features li.disabled {
+            color: #ccc;
+            opacity: 0.6;
+        }
+
+        .plan-features li.disabled::before {
+            content: '✗';
+            color: #f56c6c;
+        }
+
+        .api-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #fff;
+            padding: 80px 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .api-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .api-section h2 {
+            margin-bottom: 15px;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .api-section p {
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: left;
+            font-family: 'Courier New', 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'curl';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #667eea;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #667eea;
+        }
+
+        .copyright {
+            color: #999;
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subscription-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">✨ 意念科技</div>
+            <nav class="nav">
+                <a href="#features">功能特点</a>
+                <a href="#courses">热门课程</a>
+                <a href="#pricing">订阅计划</a>
+                <a href="#api">AI API</a>
+                <a href="#docs">文档中心</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-badge">🚀 v2026.03.26 全新上线</div>
+        <h1>意念科技 · 智能学习新时代</h1>
+        <p>集成Crunchbase式订阅机制与AI API Tokens精确计费，为您提供专业级在线学习平台解决方案</p>
+        <button class="btn btn-primary" style="padding: 18px 50px; font-size: 18px;">
+            立即开始 →
+        </button>
+    </div>
+
+    <div class="container">
+        <section id="features" class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📹</div>
+                <h3>海量视频课程</h3>
+                <p>涵盖办公、设计、编程等多个领域，超过1000门专业课程，持续更新</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>智能推荐系统</h3>
+                <p>基于AI算法分析学习偏好，智能推荐最适合的课程内容</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>精确Token计费</h3>
+                <p>实时追踪API调用，精确到Token级别的计费统计，透明可控</p>
+            </div>
+        </section>
+
+        <section id="courses" class="courses-section">
+            <div class="section-header">
+                <h2 class="section-title">🔥 热门课程</h2>
+                <p class="section-subtitle">最受欢迎的实战课程，帮助您快速掌握核心技能</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-thumbnail">Vue.js 3</div>
+                    <div class="course-info">
+                        <div class="course-title">Vue.js 3.0 完全指南</div>
+                        <div class="course-instructor">👤 张老师</div>
+                        <div class="course-stats">
+                            <span class="star-rating">★★★★★</span>
+                            <span>1,234 人学习</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-thumbnail">Python</div>
+                    <div class="course-info">
+                        <div class="course-title">Python数据分析实战</div>
+                        <div class="course-instructor">👤 李老师</div>
+                        <div class="course-stats">
+                            <span class="star-rating">★★★★★</span>
+                            <span>2,567 人学习</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-thumbnail">React</div>
+                    <div class="course-info">
+                        <div class="course-title">React 18进阶课程</div>
+                        <div class="course-instructor">👤 王老师</div>
+                        <div class="course-stats">
+                            <span class="star-rating">★★★★☆</span>
+                            <span>987 人学习</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-thumbnail">Node.js</div>
+                    <div class="course-info">
+                        <div class="course-title">Node.js后端开发</div>
+                        <div class="course-instructor">👤 赵老师</div>
+                        <div class="course-stats">
+                            <span class="star-rating">★★★★★</span>
+                            <span>1,543 人学习</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="subscription-section">
+            <div class="section-header">
+                <h2 class="section-title">💎 灵活订阅计划</h2>
+                <p class="section-subtitle">参考Crunchbase设计的分层定价，满足不同规模需求</p>
+            </div>
+            <div class="subscription-grid">
+                <div class="subscription-card">
+                    <div class="plan-name">Free</div>
+                    <div class="plan-price">免费</div>
+                    <ul class="plan-features">
+                        <li>每月 50,000 <span class="highlight">Tokens</span></li>
+                        <li>访问基础课程</li>
+                        <li>标准API响应速度</li>
+                        <li>社区支持</li>
+                        <li class="disabled">优先API响应</li>
+                        <li class="disabled">邮件支持</li>
+                        <li class="disabled">高级数据分析</li>
+                    </ul>
+                    <button class="btn btn-outline">免费开始</button>
+                </div>
+                <div class="subscription-card popular">
+                    <div class="plan-name">Pro</div>
+                    <div class="plan-price">¥199<span>/月</span></div>
+                    <ul class="plan-features">
+                        <li>每月 500,000 <span class="highlight">Tokens</span></li>
+                        <li>访问所有课程</li>
+                        <li>优先API响应（&lt;100ms）</li>
+                        <li>邮件技术支持</li>
+                        <li>高级数据分析</li>
+                        <li>使用统计导出</li>
+                        <li class="disabled">专属客户经理</li>
+                    </ul>
+                    <button class="btn btn-primary">立即订阅</button>
+                </div>
+                <div class="subscription-card">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">¥999<span>/月</span></div>
+                    <ul class="plan-features">
+                        <li>无限 <span class="highlight">Tokens</span></li>
+                        <li>访问所有课程</li>
+                        <li>最高优先级响应（&lt;50ms）</li>
+                        <li>专属客户经理</li>
+                        <li>7x24小时支持</li>
+                        <li>SLA服务保证</li>
+                        <li>私有化部署选项</li>
+                    </ul>
+                    <button class="btn btn-outline">联系我们</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="api" class="api-section">
+            <h2>🤖 AI API - OpenAI 完全兼容</h2>
+            <p>简单易用的AI API接口，精确的Token计费，实时使用量统计，无缝集成到您的应用</p>
+            <div class="code-block">
+curl -X POST https://api.yinian.tech/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-3.5-turbo",
+    "messages": [
+      {"role": "user", "content": "你好！"}
+    ]
+  }'
+            </div>
+            <button class="btn btn-primary" style="background: #fff; color: #667eea;">
+                📖 查看完整API文档
+            </button>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">使用帮助</a>
+                <a href="#">隐私政策</a>
+                <a href="#">服务条款</a>
+                <a href="#">联系客服</a>
+                <a href="#">开发者中心</a>
+            </div>
+            <div class="copyright">
+                网站版本 v2026.03.26 滇ICP备10000001号-1
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

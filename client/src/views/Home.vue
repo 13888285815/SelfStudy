@@ -3,8 +3,8 @@
     <el-row :gutter="20">
       <el-col :span="24">
         <div class="hero">
-          <h1>学无止境 · 名师驻站</h1>
-          <p>专业的在线学习平台，提供全方位的技能培训</p>
+          <h1>意念科技 · 创新学习</h1>
+          <p>专业的在线学习平台，提供AI API Tokens计费和智能学习服务</p>
           <el-button type="primary" size="large" @click="$router.push('/courses')">
             开始学习
           </el-button>
