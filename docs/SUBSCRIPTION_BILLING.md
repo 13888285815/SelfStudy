@@ -409,13 +409,13 @@ A: 立即在后台撤销该Key并创建新的Key。建议定期更换API Key。
 
 ### Q5: Enterprise版支持定制化吗？
 
-A: 支持，请联系我们的销售团队 discuss@yinian.tech，我们将根据您的需求提供定制方案。
+A: 支持，请联系我们的销售团队 zzx@yndxw.com，我们将根据您的需求提供定制方案。
 
 ## 技术支持
 
 - **在线文档**: https://docs.yinian.tech
-- **技术支持邮箱**: support@yinian.tech
-- **企业咨询**: discuss@yinian.tech
+- **技术支持邮箱**: zzx@yndxw.com
+- **企业咨询**: zzx@yndxw.com
 - **工作时间**: 周一至周五 9:00-18:00（北京时间）
 
 ---

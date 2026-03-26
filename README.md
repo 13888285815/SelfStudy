@@ -202,5 +202,5 @@ MIT License
 
 ## 联系方式
 
-- Email: support@yinian.tech
+- Email: zzx@yndxw.com
 - GitHub: https://github.com/13888285815/SelfStudy
