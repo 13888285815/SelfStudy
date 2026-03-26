@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-已成功创建一个类似51zxw.net的在线学习平台(意念科技),集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
+已成功创建意念科技在线学习平台,集成Crunchbase式的订阅机制与AI API Tokens精确计费系统。
 
 ## 完成的功能模块
 

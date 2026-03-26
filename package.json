@@ -1,7 +1,7 @@
 {
   "name": "yinian-tech",
   "version": "1.0.0",
-  "description": "意念科技在线学习平台 - 集成Crunchbase式订阅和AI API Tokens计费",
+  "description": "意念科技在线学习平台 - 集成Crunchbase式订阅机制与AI API Tokens精确计费系统",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

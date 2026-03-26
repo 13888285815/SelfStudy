@@ -2,7 +2,7 @@
 
 ## 📋 项目概述
 
-意念科技是一个类似51zxw.net的在线学习平台,集成了Crunchbase式的订阅机制和AI API Tokens计费模式。
+意念科技是一个专业的在线学习平台,集成Crunchbase式的订阅机制与AI API Tokens精确计费系统。
 
 ### 核心功能
 ✅ 用户认证系统 (JWT + API Key)

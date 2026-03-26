@@ -1,6 +1,6 @@
 # 意念科技在线学习平台
 
-一个类似51zxw.net的专业在线学习平台，集成Crunchbase式的订阅机制和AI API Tokens计费模式。
+意念科技是一个专业的在线学习平台，集成Crunchbase式的订阅机制与AI API Tokens精确计费系统。
 
 ## 功能特性
 
